@@ -4,6 +4,7 @@
 import features
 import json
 import os
+import sys
 
 from collections import defaultdict
 from random import shuffle
@@ -12,21 +13,21 @@ from sklearn.linear_model import SGDClassifier
 
 
 NUM_CLASSES = 5
-NUM_REVIEWS = 10
-PERCENT_TRAIN = 0.9
-verbose = True
+NUM_REVIEWS = 100
+PERCENT_TRAIN = 0.75
+verbose = (len(sys.argv) > 1)
 
 directory = '../dataset/reviews'
 
 classes = set([]) 					# set(['Nightlife', 'Bars', ...])
-original_reviews = []				# ['This place is the WORST', ...]
+review_texts = []					# ['This place is the WORST', ...]
 featurized_reviews = []				# [{'review_id': ...}, {}, ...]
 labels = []							# [['American', 'Burgers'], ['Italian', ...], ...]
 models = [None] * NUM_CLASSES		# [SGDClassifier for 'Burgers', SGDClassifier for 'Sushi', ...]
 predictions = [0] * NUM_CLASSES
 
-def featurize(raw_review):
-	return features.bag_of_words(raw_review)
+def featurize(review):
+	return features.bag_of_words(review)
 
 # Generate top NUM_CLASSES classes
 i = 0
@@ -38,31 +39,33 @@ with open('labels.txt') as labels_file:
 		i += 1
 
 # Read in data
-review_data = os.listdir(directory)
-shuffle(review_data)
+review_files = os.listdir(directory)
+shuffle(review_files)
 i = 0
 while len(featurized_reviews) < NUM_REVIEWS:
-	filename = directory + '/' + review_data[i]
+	filename = directory + '/' + review_files[i]
 	i += 1
 	with open(filename) as review_file:
 		for line in review_file:
 			try:
-				raw_review = json.loads(line)
+				review = json.loads(line)
 			except:
 				continue
-			relevant_classes = classes.intersection(set(raw_review['categories']))
+			relevant_classes = classes.intersection(set(review['categories']))
 			if len(relevant_classes) == 0:
 				continue
-			original_reviews.append(raw_review['text'])
-			featurized_reviews.append(featurize(raw_review))
+			review_texts.append(review['text'])
+			featurized_reviews.append(featurize(review))
 			labels.append(list(relevant_classes))
 
 # Generate train, test data
 num_train_reviews = int(PERCENT_TRAIN * len(featurized_reviews))
 train_reviews = featurized_reviews[:num_train_reviews]
 train_labels = labels[:num_train_reviews]
+
+num_test_reviews = NUM_REVIEWS - num_train_reviews
 test_reviews = featurized_reviews[num_train_reviews:]
-test_original_reviews = original_reviews[num_train_reviews:]
+test_review_texts = review_texts[num_train_reviews:]
 test_labels = labels[num_train_reviews:]
 
 # Fit data
@@ -72,24 +75,27 @@ X_test = v.transform(test_reviews)
 
 # Create N models
 classes = list(classes)
+one_hot_labels = [[]] * NUM_CLASSES
 for i in range(NUM_CLASSES):
 	# Eg. if train_labels = [('Bars', 'Burgers'), ('Burgers', 'Sushi'), ('Sushi')]
 	# 	  and classes[i] = 'Burgers', then
-	#     	class_specific_labels = [1, 1, 0]
-	class_specific_labels = [1 if classes[i] in set(label_list) else 0 for label_list in train_labels]
+	#     	one_hot_labels[i] = [1, 1, 0]
+	one_hot_labels[i] = [1 if classes[i] in set(label_list) else 0 for label_list in train_labels]
 	models[i] = SGDClassifier()
-	models[i].fit(X_train, class_specific_labels)
+	models[i].fit(X_train, one_hot_labels[i])
 	predictions[i] = models[i].predict(X_test)
-	if verbose:
-		# There might be a logic error in here. Debug.
-		for original_review, prediction, label in zip(test_original_reviews, predictions[i], test_labels):
-			print(original_review)
-			print('Predicted:', 'YES' if prediction == 1 else 'NO', classes[i])
-			print('Actual:', 'YES' if classes[i] in test_labels else 'NO', classes[i])
-			input()
 
-
-
+# Fancy print predictions and add evaluation metrics to a file
+if not verbose:
+	exit()
+for i in range(num_test_reviews):
+	review_text = review_texts[i]
+	print('########REVIEW########')
+	print(review_text[:100])
+	print('######################')
+	for j in range(NUM_CLASSES):
+		print(('{:>30s}: {:>1d} {:>1d}').format(classes[j], predictions[j][i], one_hot_labels[j][i]))
+	if input('######################') != '': exit()
 
 
 
