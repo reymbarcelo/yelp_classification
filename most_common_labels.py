@@ -14,4 +14,5 @@ with open('labels.json') as label_file:
 			for category in categories:
 				labels_to_count[category] += 1
 for k, v in sorted(labels_to_count.items(), key=itemgetter(1), reverse=True):
-	print(k, v)
+	if k != 'Restaurants':
+		print(k)

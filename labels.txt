@@ -1,0 +1,696 @@
+Nightlife
+Bars
+Sandwiches
+Fast Food
+American (Traditional)
+Pizza
+Italian
+Burgers
+Breakfast & Brunch
+Mexican
+Chinese
+American (New)
+Cafes
+Coffee & Tea
+Japanese
+Chicken Wings
+Seafood
+Salad
+Event Planning & Services
+Sushi Bars
+Delis
+Asian Fusion
+Mediterranean
+Barbeque
+Sports Bars
+Canadian (New)
+Specialty Food
+Steakhouses
+Indian
+Caterers
+Thai
+Pubs
+Bakeries
+Desserts
+Diners
+Middle Eastern
+Greek
+French
+Vietnamese
+Vegetarian
+Wine Bars
+Beer
+Wine & Spirits
+Buffets
+Cocktail Bars
+Arts & Entertainment
+Korean
+Lounges
+Ice Cream & Frozen Yogurt
+Soup
+Gluten-Free
+Vegan
+Tex-Mex
+Comfort Food
+Juice Bars & Smoothies
+Hot Dogs
+Ethnic Food
+Food Delivery Services
+Caribbean
+Gastropubs
+German
+Latin American
+Food Trucks
+Halal
+Southern
+Grocery
+Venues & Event Spaces
+Tapas/Small Plates
+Shopping
+Bagels
+Pakistani
+Hotels & Travel
+British
+Fish & Chips
+Noodles
+Tapas Bars
+Music Venues
+Food Stands
+Hawaiian
+Hotels
+Soul Food
+Chicken Shop
+Imported Food
+Dim Sum
+Cajun/Creole
+Portuguese
+Breweries
+Modern European
+Beer Bar
+Dive Bars
+Creperies
+Active Life
+Swabian
+Spanish
+Street Vendors
+Filipino
+Cheesesteaks
+Irish
+Turkish
+Lebanese
+Donuts
+Taiwanese
+Ramen
+Local Flavor
+Persian/Iranian
+Bistros
+Dance Clubs
+Tea Rooms
+Karaoke
+Tacos
+Brasseries
+Food Court
+Meat Shops
+African
+Poutineries
+Party & Event Planning
+Bubble Tea
+International
+Kosher
+Health Markets
+Falafel
+Wraps
+Casinos
+Convenience Stores
+Hookah Bars
+Afghan
+Pan Asian
+Peruvian
+Delicatessen
+Poke
+Waffles
+Hot Pot
+Szechuan
+Beer Garden
+Internet Cafes
+Kebab
+Patisserie/Cake Shop
+Brazilian
+Scottish
+Cantonese
+Ethiopian
+Seafood Markets
+Cuban
+Arcades
+Polish
+Local Services
+Beauty & Spas
+Malaysian
+Golf
+Live/Raw Food
+Butcher
+Irish Pub
+Do-It-Yourself Food
+Salvadoran
+Organic Stores
+Moroccan
+Bed & Breakfast
+Arabian
+Jazz & Blues
+Cheese Shops
+Automotive
+Home & Garden
+Pool Halls
+Pasta Shops
+Russian
+Shaved Ice
+Fruits & Veggies
+Himalayan/Nepalese
+Home Services
+Flowers & Gifts
+Chocolatiers & Shops
+Belgian
+Gelato
+Argentine
+Beer Gardens
+Farmers Market
+Fondue
+Cafeteria
+Fashion
+Mongolian
+Smokehouse
+Health & Medical
+Coffee Roasteries
+Colombian
+Shopping Centers
+Cupcakes
+Performing Arts
+Education
+Bowling
+Cambodian
+Wineries
+International Grocery
+Pretzels
+New Mexican Cuisine
+Acai Bowls
+Art Galleries
+Gas Stations
+Festivals
+Whiskey Bars
+Hungarian
+Books
+Mags
+Music & Video
+Basque
+Sri Lankan
+Custom Cakes
+Hair Salons
+Wedding Planning
+Professional Services
+Personal Chefs
+Gay Bars
+Hakka
+Venezuelan
+Teppanyaki
+Arts & Crafts
+Indonesian
+Social Clubs
+Gift Shops
+Day Spas
+Adult Entertainment
+Specialty Schools
+Public Services & Government
+Candy Stores
+Puerto Rican
+Bangladeshi
+Singaporean
+Kitchen & Bath
+Sports Clubs
+Cinema
+Fitness & Instruction
+Tours
+Ukrainian
+Resorts
+Department Stores
+Donairs
+South African
+Dominican
+Real Estate
+Wigs
+Serbo Croatian
+Florists
+Bookstores
+Kids Activities
+Ethnic Grocery
+Drugstores
+Scandinavian
+Tobacco Shops
+Cooking Schools
+Pets
+Laotian
+Women's Clothing
+Curry Sausage
+Home Decor
+Appliances
+Furniture Stores
+Macarons
+Playgrounds
+Austrian
+Bavarian
+Egyptian
+Eatertainment
+Speakeasies
+Nutritionists
+Comedy Clubs
+Country Clubs
+Swimming Pools
+Cosmetics & Beauty Supply
+Brewpubs
+Amusement Parks
+Sporting Goods
+Dinner Theater
+Community Service/Non-Profit
+Burmese
+Empanadas
+Izakaya
+Ethical Grocery
+Hobby Shops
+Financial Services
+Champagne Bars
+Country Dance Halls
+Landmarks & Historical Buildings
+Piano Bars
+Haitian
+Cooking Classes
+Recreation Centers
+Australian
+Beverage Store
+Couriers & Delivery Services
+Amateur Sports Teams
+Coffee & Tea Supplies
+Shanghainese
+Massage
+Airports
+Doctors
+Guest Houses
+Libraries
+Armenian
+Nail Salons
+Travel Services
+Museums
+Musicians
+Outlet Stores
+Contractors
+Wholesale Stores
+Toy Stores
+Pet Services
+Laser Tag
+Supper Clubs
+Transportation
+Tiki Bars
+Men's Clothing
+Sugar Shacks
+DJs
+Czech
+Bartenders
+Auto Repair
+Religious Organizations
+Weight Loss Centers
+Vitamins & Supplements
+Appliances & Repair
+Wine Tasting Room
+Antiques
+Dry Cleaning & Laundry
+Gyms
+Nurseries & Gardening
+Popcorn Shops
+Personal Shopping
+Food Tours
+Syrian
+Art Schools
+Heating & Air Conditioning/HVAC
+Party Supplies
+Shared Office Spaces
+Massage Therapy
+Herbs & Spices
+Pet Stores
+Parks
+Paint & Sip
+Art Classes
+Leisure Centers
+Tabletop Games
+Yelp Events
+Laundry Services
+Wholesalers
+Vinyl Records
+Towing
+Trinidadian
+Videos & Video Game Rental
+Mini Golf
+Tuscan
+Interior Design
+Bike Rentals
+Bike Repair/Maintenance
+Fischbroetchen
+Barbers
+Accessories
+Iberian
+Cabaret
+Yoga
+Plumbing
+Real Estate Services
+Pet Sitting
+Beaches
+Restaurant Supplies
+Adult Education
+Beer Hall
+Soccer
+Stadiums & Arenas
+Limos
+Honduran
+Car Dealers
+Pub Food
+Trainers
+Zoos
+Souvenir Shops
+Screen Printing
+Web Design
+Pool & Billiards
+Dance Studios
+Escape Games
+Oriental
+Slovakian
+Airport Lounges
+Swiss Food
+Home Cleaning
+Bikes
+Fishmonger
+Outdoor Furniture Stores
+Mattresses
+Churches
+Aquariums
+Party Equipment Rentals
+Pop-Up Restaurants
+Walking Tours
+Business Consulting
+Tennis
+Coffeeshops
+Uzbek
+Auto Parts & Supplies
+Animal Shelters
+Auto Glass Services
+Car Wash
+Golf Lessons
+Boating
+RV Parks
+Medical Spas
+Themed Cafes
+Flea Markets
+Cultural Center
+Airport Shuttles
+IT Services & Computer Repair
+Team Building Activities
+Bridal
+Distilleries
+Discount Store
+Makeup Artists
+Hair Stylists
+Landscaping
+Colleges & Universities
+Strip Clubs
+Printing Services
+Baden
+Hair Removal
+Hospitals
+Eastern European
+Apartments
+Marketing
+Advertising
+Nicaraguan
+Beach Bars
+Personal Assistants
+Roofing
+Windows Installation
+Pop-up Shops
+Financial Advising
+Insurance
+Dance Schools
+Pita
+Sports Medicine
+Acupuncture
+Japanese Curry
+Horseback Riding
+Air Duct Cleaning
+Pharmacy
+Pet Adoption
+Pensions
+Tax Services
+Bankruptcy Law
+Lawyers
+Wine Tours
+Tires
+Masonry/Concrete
+Flooring
+Oil Change Stations
+Used
+Vintage & Consignment
+Wedding Chapels
+Grilling Equipment
+Water Stores
+Cideries
+Mauritius
+CSA
+Marinas
+Special Education
+Pool & Hot Tub Service
+Vacation Rentals
+Laundromat
+Furniture Rental
+Electronics
+Hiking
+Visitor Centers
+Ticket Sales
+Funeral Services & Cemeteries
+Vape Shops
+Physical Therapy
+Party Bus Rentals
+Shaved Snow
+Taxis
+Computers
+Ski Resorts
+Banks & Credit Unions
+Post Offices
+Hotel bar
+Jewelry
+Botanical Gardens
+Golf Equipment Shops
+Sports Wear
+Hair Extensions
+Tanning
+Baby Gear & Furniture
+Hostels
+Local Fish Stores
+Gardeners
+Cosmetic Surgeons
+Rock Climbing
+Shoe Stores
+Dentists
+Martial Arts
+Skin Care
+Building Supplies
+Schnitzel
+Laser Hair Removal
+Lakes
+Investing
+Home Health Care
+Piercing
+Tattoo
+Farms
+Life Coach
+Public Markets
+Bingo Halls
+Flatbread
+Auto Customization
+Olive Oil
+Reunion
+Graphic Design
+Screen Printing/T-Shirt Printing
+Virtual Reality Centers
+Siding
+Check Cashing/Pay-day Loans
+Currency Exchange
+Preschools
+Mountain Biking
+Udon
+Beer Tours
+Aircraft Repairs
+Airsoft
+Rest Stops
+Gun/Rifle Ranges
+Security Systems
+Traditional Norwegian
+Opera & Ballet
+Batting Cages
+Golf Equipment
+Summer Camps
+Wills
+Trusts
+& Probates
+Estate Planning Law
+Tax Law
+Home Inspectors
+Damage Restoration
+Community Centers
+Head Shops
+Used Bookstore
+Cards & Stationery
+Handyman
+Tempura
+Tonkatsu
+Dog Walkers
+Pet Boarding
+Accountants
+Pilates
+Furniture Repair
+Lighting Fixtures & Equipment
+Ice Delivery
+Fur Clothing
+Photo Booth Rentals
+Skating Rinks
+Bartending Schools
+Counseling & Mental Health
+Glass & Mirrors
+Software Development
+Door Sales/Installation
+Senegalese
+Mobile Phones
+Tasting Classes
+Cheese Tasting Classes
+Club Crawl
+Conveyor Belt Sushi
+Horse Racing
+Climbing
+Elementary Schools
+Rehabilitation Center
+Occupational Therapy
+Reflexology
+Campgrounds
+Newspapers & Magazines
+Septic Services
+Water Heater Installation/Repair
+Mobile Phone Repair
+Baguettes
+Wok
+Medical Centers
+Car Rental
+Dry Cleaning
+Security Services
+Parent Cafes
+Cannabis Clinics
+Hong Kong Style Cafe
+Spray Tanning
+Real Estate Agents
+Video Game Stores
+Comic Books
+Honey
+Aquarium Services
+Nail Technicians
+Castles
+Eastern German
+Auto Insurance
+Windshield Installation & Repair
+Transmission Repair
+Historical Tours
+Leather Goods
+Sicilian
+Milkshake Bars
+Kombucha
+Family Practice
+Internet Service Providers
+Drive-Thru Bars
+Podiatrists
+Feng Shui
+Paint-Your-Own Pottery
+Mosques
+Sewing & Alterations
+Formal Wear
+Landscape Architects
+Body Shops
+Bar Crawl
+Car Share Services
+Public Transportation
+Notaries
+Mulled Wine
+Clothing Rental
+Sailing
+Waxing
+Hainan
+Pet Groomers
+Property Management
+Adult
+Pediatricians
+Cardiologists
+Keys & Locksmiths
+Bulgarian
+Mortgage Brokers
+Estate Liquidation
+Health Retreats
+Island Pub
+Pumpkin Patches
+Pick Your Own Farms
+Foundation Repair
+Magicians
+Supernatural Readings
+Meditation Centers
+Photographers
+Event Photography
+Session Photography
+Truck Rental
+Fire Protection Services
+Office Cleaning
+Eyebrow Services
+Czech/Slovakian
+Palatine
+Airport Terminals
+Veterinarians
+Guamanian
+Auto Upholstery
+Furniture Reupholstery
+Auto Detailing
+Motorcycle Repair
+RV Repair
+Music & DVDs
+Eyelash Service
+Alsatian
+Friterie
+Race Tracks
+Go Karts
+Unofficial Yelp Events
+Christmas Trees
+Game Meat
+Georgian
+Knife Sharpening
+Chiropractors
+Signmaking
+Vehicle Wraps
+Car Window Tinting
+Observatories
+Churros
+Hot Tub & Pool
+Fireplace Services
+Mailbox Centers
+Boat Charters
+Hardware Stores
+Medical Transportation
+Orthodontists
+Teeth Whitening
+General Dentistry
+Cosmetic Dentists
+Framing
+Rotisserie Chicken
+Pawn Shops
+Minho
+Soba
+Indoor Playcentre
+Kiosk
+Signature Cuisine
