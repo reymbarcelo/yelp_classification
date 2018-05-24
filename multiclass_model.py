@@ -12,8 +12,8 @@ from sklearn.feature_extraction import DictVectorizer
 from sklearn.linear_model import SGDClassifier
 
 
-NUM_CLASSES = 5
-NUM_REVIEWS = 100
+NUM_CLASSES = 10
+NUM_REVIEWS = 1000
 PERCENT_TRAIN = 0.75
 verbose = (len(sys.argv) > 1)
 
@@ -92,10 +92,13 @@ for i in range(num_test_reviews):
 	review_text = review_texts[i]
 	print('########REVIEW########')
 	print(review_text[:100])
-	print('######################')
+	print(('{:>20s}: {:>10s} {:>10s} {:>5s}').format('Class', 'Predicted', 'Actual', 'Correct?'))
 	for j in range(NUM_CLASSES):
-		print(('{:>30s}: {:>1d} {:>1d}').format(classes[j], predictions[j][i], one_hot_labels[j][i]))
-	if input('######################') != '': exit()
+		print(('{:>20s}: {:>10s} {:>10s} {:>5s}').format(classes[j][:20], \
+			'YES' if predictions[j][i] == 1 else 'NO', \
+			'YES' if one_hot_labels[j][i] == 1 else 'NO',
+			'+' if predictions[j][i] == one_hot_labels[j][i] else ''))
+	if input('Hit ENTER to continue, hit anything else to quit.') != '': exit()
 
 
 
