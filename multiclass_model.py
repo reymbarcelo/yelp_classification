@@ -81,24 +81,30 @@ for i in range(NUM_CLASSES):
 	# 	  and classes[i] = 'Burgers', then
 	#     	one_hot_labels[i] = [1, 1, 0]
 	one_hot_labels[i] = [1 if classes[i] in set(label_list) else 0 for label_list in train_labels]
-	models[i] = SGDClassifier()
+	models[i] = SGDClassifier(max_iter=5, tol=None)
 	models[i].fit(X_train, one_hot_labels[i])
 	predictions[i] = models[i].predict(X_test)
 
 # Fancy print predictions and add evaluation metrics to a file
-if not verbose:
-	exit()
+numCorrect = 0
+total = 0
 for i in range(num_test_reviews):
 	review_text = review_texts[i]
-	print('########REVIEW########')
-	print(review_text[:100])
-	print(('{:>20s}: {:>10s} {:>10s} {:>5s}').format('Class', 'Predicted', 'Actual', 'Correct?'))
+	if verbose: print('########REVIEW########')
+	if verbose: print(review_text[:100])
+	if verbose: print(('{:>20s}: {:>10s} {:>10s} {:>10s}').format('Class', 'Predicted', 'Actual', 'Correct?'))
 	for j in range(NUM_CLASSES):
-		print(('{:>20s}: {:>10s} {:>10s} {:>5s}').format(classes[j][:20], \
+		correct = (predictions[j][i] == one_hot_labels[j][i])
+		if correct:
+			numCorrect += 1
+		total += 1
+		if verbose: print(('{:>20s}: {:>10s} {:>10s} {:>10s}').format(classes[j][:20], \
 			'YES' if predictions[j][i] == 1 else 'NO', \
 			'YES' if one_hot_labels[j][i] == 1 else 'NO',
-			'+' if predictions[j][i] == one_hot_labels[j][i] else ''))
-	if input('Hit ENTER to continue, hit anything else to quit.') != '': exit()
+			'+' if correct else ''))
+	if verbose and input('Hit ENTER to continue, hit anything else to quit.') != '': 
+		verbose = False
+print(float(100 * numCorrect / (total)), 'percent correct')
 
 
 
