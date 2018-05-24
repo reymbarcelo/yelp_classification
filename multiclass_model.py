@@ -81,7 +81,7 @@ for i in range(NUM_CLASSES):
 	# 	  and classes[i] = 'Burgers', then
 	#     	one_hot_labels[i] = [1, 1, 0]
 	one_hot_labels[i] = [1 if classes[i] in set(label_list) else 0 for label_list in train_labels]
-	models[i] = SGDClassifier()
+	models[i] = SGDClassifier(max_iter=5, tol=None)
 	models[i].fit(X_train, one_hot_labels[i])
 	predictions[i] = models[i].predict(X_test)
 
