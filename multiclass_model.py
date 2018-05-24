@@ -73,7 +73,7 @@ X_test = v.transform(test_reviews)
 # Create N models
 classes = list(classes)
 for i in range(NUM_CLASSES):
-	# Eg. if labels = [('Bars', 'Burgers'), ('Burgers', 'Sushi'), ('Sushi')]
+	# Eg. if train_labels = [('Bars', 'Burgers'), ('Burgers', 'Sushi'), ('Sushi')]
 	# 	  and classes[i] = 'Burgers', then
 	#     	class_specific_labels = [1, 1, 0]
 	class_specific_labels = [1 if classes[i] in set(label_list) else 0 for label_list in train_labels]
@@ -81,6 +81,7 @@ for i in range(NUM_CLASSES):
 	models[i].fit(X_train, class_specific_labels)
 	predictions[i] = models[i].predict(X_test)
 	if verbose:
+		# There might be a logic error in here. Debug.
 		for original_review, prediction, label in zip(test_original_reviews, predictions[i], test_labels):
 			print(original_review)
 			print('Predicted:', 'YES' if prediction == 1 else 'NO', classes[i])
@@ -91,10 +92,6 @@ for i in range(NUM_CLASSES):
 
 
 
-
-
-
-print('Made it to the end!')
 
 
 
