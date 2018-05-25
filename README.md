@@ -1,4 +1,14 @@
 # yelp_classification
+SETUP:
+
+`python multiclass_model.py`    
+
+(just prints precision, recall, and accuracy)
+
+`python multiclass_model.py v`  
+
+(prints individual reviews as well)
+
 
 TODOs:
 - [ ] Add more feature extractors in **features.py**
