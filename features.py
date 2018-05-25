@@ -23,3 +23,4 @@ def bigrams(review):
 	for i in range(len(split_review) - 1):
 		featurized_review[split_review[i] + '_' + split_review[i+1]] += 1
 	return featurized_review
+
