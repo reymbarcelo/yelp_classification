@@ -6,15 +6,15 @@ import os
 import sys
 
 from collections import defaultdict
+from models import chosen_model
 from features import featurize
 from random import shuffle
 from sklearn.feature_extraction import DictVectorizer
-from sklearn.linear_model import SGDClassifier
-from sklearn.naive_bayes import GaussianNB
-from sklearn.svm import LinearSVC
 
+# Some combinations of these params are impossible. If so,
+# it *should* exit gracefully, but I can't promise anything :P
 NUM_CLASSES = 10
-NUM_RELEVANT_CLASSES = 4
+NUM_RELEVANT_CLASSES = 4			
 NUM_REVIEWS = 1000
 PERCENT_TRAIN = 0.75
 EPSILON = sys.float_info.epsilon
@@ -27,9 +27,6 @@ featurized_reviews = []				# [{'review_id': ...}, {}, ...]
 labels = []							# [['American', 'Burgers'], ['Italian', ...], ...]
 models = [None] * NUM_CLASSES		# [SGDClassifier for 'Burgers', SGDClassifier for 'Sushi', ...]
 predicted = [0] * NUM_CLASSES
-
-def chosen_model():
-	return SGDClassifier(max_iter=5)
 
 # Generate top NUM_CLASSES classes
 i = 0
@@ -47,6 +44,9 @@ i = 0
 while len(featurized_reviews) < NUM_REVIEWS:
 	filename = directory + '/' + review_files[i]
 	i += 1
+	if i >= len(review_files):
+		exit('There are not enough reviews for the parameters \
+			you have selected. Please try again.')
 	with open(filename) as review_file:
 		for line in review_file:
 			try:
