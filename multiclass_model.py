@@ -1,5 +1,4 @@
 # Classifies reviews based on top N classes.
-# Uses SKLearn.SGDClassifier as a model and bag of words as feature extraction.
 
 import json
 import os
@@ -14,7 +13,7 @@ from sklearn.feature_extraction import DictVectorizer
 # Some combinations of these params are impossible. If so,
 # it *should* exit gracefully, but I can't promise anything :P
 NUM_CLASSES = 10
-NUM_RELEVANT_CLASSES = 4			
+NUM_RELEVANT_CLASSES = 3
 NUM_REVIEWS = 1000
 PERCENT_TRAIN = 0.75
 EPSILON = sys.float_info.epsilon
@@ -26,7 +25,8 @@ review_texts = []					# ['This place is the WORST', ...]
 featurized_reviews = []				# [{'review_id': ...}, {}, ...]
 labels = []							# [['American', 'Burgers'], ['Italian', ...], ...]
 models = [None] * NUM_CLASSES		# [SGDClassifier for 'Burgers', SGDClassifier for 'Sushi', ...]
-predicted = [0] * NUM_CLASSES
+predicted = [[]] * NUM_CLASSES 		# [[1, 0, 1, ...], ...]
+actual = [[]] * NUM_CLASSES 		# [[1, 1, 0, ...], ...]
 
 # Generate top NUM_CLASSES classes
 i = 0
@@ -77,7 +77,6 @@ X_test = v.transform(test_reviews)
 
 # Create N models
 classes = list(classes)
-actual = [[]] * NUM_CLASSES
 for i in range(NUM_CLASSES):
 	# Eg. if train_labels = [('Bars', 'Burgers'), ('Burgers', 'Sushi'), ('Sushi')]
 	# 	  and classes[i] = 'Burgers', then
@@ -118,11 +117,12 @@ for i in range(num_test_reviews):
 	if verbose and input('Hit ENTER to continue, hit anything else to quit. ') != '': 
 		verbose = False
 print('#########EVAL#########')
-print(('{:>20s}: {:>10s} {:>10s}').format('Class', 'Precision', 'Recall'))
+print(('{:>20s}: {:>10s} {:>10s} {:>10s}').format('Class', 'Precision', 'Recall', 'Instances'))
 for j in range(NUM_CLASSES):
-	print(('{:>20s}: {: >1.8f} {: >1.8f}').format(classes[j][:20], \
+	print('{:>20s}: {:>1.8f} {:>1.8f} {:>10d}'.format(classes[j][:20], \
 			float(true_positives[j] / (true_positives[j] + false_positives[j])), \
-			float(true_positives[j] / (true_positives[j] + false_negatives[j]))))
+			float(true_positives[j] / (true_positives[j] + false_negatives[j])), \
+			sum(actual[j])))
 print('Accuracy:', float(numCorrect / (total)))
 
 
