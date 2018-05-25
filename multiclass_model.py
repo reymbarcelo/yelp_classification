@@ -10,14 +10,15 @@ from features import featurize
 from random import shuffle
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.linear_model import SGDClassifier
-
+from sklearn.naive_bayes import GaussianNB
+from sklearn.svm import LinearSVC
 
 NUM_CLASSES = 10
+NUM_RELEVANT_CLASSES = 4
 NUM_REVIEWS = 1000
 PERCENT_TRAIN = 0.75
 EPSILON = sys.float_info.epsilon
 verbose = (len(sys.argv) > 1)
-
 directory = '../dataset/reviews'
 
 classes = set([]) 					# set(['Nightlife', 'Bars', ...])
@@ -26,6 +27,9 @@ featurized_reviews = []				# [{'review_id': ...}, {}, ...]
 labels = []							# [['American', 'Burgers'], ['Italian', ...], ...]
 models = [None] * NUM_CLASSES		# [SGDClassifier for 'Burgers', SGDClassifier for 'Sushi', ...]
 predicted = [0] * NUM_CLASSES
+
+def chosen_model():
+	return SGDClassifier(max_iter=5)
 
 # Generate top NUM_CLASSES classes
 i = 0
@@ -50,7 +54,7 @@ while len(featurized_reviews) < NUM_REVIEWS:
 			except:
 				continue
 			relevant_classes = classes.intersection(set(review['categories']))
-			if len(relevant_classes) == 0:
+			if len(relevant_classes) < NUM_RELEVANT_CLASSES:
 				continue
 			review_texts.append(review['text'])
 			featurized_reviews.append(featurize(review))
@@ -79,7 +83,7 @@ for i in range(NUM_CLASSES):
 	# 	  and classes[i] = 'Burgers', then
 	#     	actual[i] = [1, 1, 0]
 	actual[i] = [1 if classes[i] in set(label_list) else 0 for label_list in train_labels]
-	models[i] = SGDClassifier(max_iter=5)
+	models[i] = chosen_model()
 	models[i].fit(X_train, actual[i])
 	predicted[i] = models[i].predict(X_test)
 
