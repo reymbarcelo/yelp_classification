@@ -1,12 +1,12 @@
 # Classifies reviews based on top N classes.
 # Uses SKLearn.SGDClassifier as a model and bag of words as feature extraction.
 
-import features
 import json
 import os
 import sys
 
 from collections import defaultdict
+from features import featurize
 from random import shuffle
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.linear_model import SGDClassifier
@@ -15,6 +15,7 @@ from sklearn.linear_model import SGDClassifier
 NUM_CLASSES = 10
 NUM_REVIEWS = 1000
 PERCENT_TRAIN = 0.75
+EPSILON = sys.float_info.epsilon
 verbose = (len(sys.argv) > 1)
 
 directory = '../dataset/reviews'
@@ -24,10 +25,7 @@ review_texts = []					# ['This place is the WORST', ...]
 featurized_reviews = []				# [{'review_id': ...}, {}, ...]
 labels = []							# [['American', 'Burgers'], ['Italian', ...], ...]
 models = [None] * NUM_CLASSES		# [SGDClassifier for 'Burgers', SGDClassifier for 'Sushi', ...]
-predictions = [0] * NUM_CLASSES
-
-def featurize(review):
-	return features.bag_of_words(review)
+predicted = [0] * NUM_CLASSES
 
 # Generate top NUM_CLASSES classes
 i = 0
@@ -75,36 +73,53 @@ X_test = v.transform(test_reviews)
 
 # Create N models
 classes = list(classes)
-one_hot_labels = [[]] * NUM_CLASSES
+actual = [[]] * NUM_CLASSES
 for i in range(NUM_CLASSES):
 	# Eg. if train_labels = [('Bars', 'Burgers'), ('Burgers', 'Sushi'), ('Sushi')]
 	# 	  and classes[i] = 'Burgers', then
-	#     	one_hot_labels[i] = [1, 1, 0]
-	one_hot_labels[i] = [1 if classes[i] in set(label_list) else 0 for label_list in train_labels]
-	models[i] = SGDClassifier(max_iter=5, tol=None)
-	models[i].fit(X_train, one_hot_labels[i])
-	predictions[i] = models[i].predict(X_test)
+	#     	actual[i] = [1, 1, 0]
+	actual[i] = [1 if classes[i] in set(label_list) else 0 for label_list in train_labels]
+	models[i] = SGDClassifier(max_iter=5)
+	models[i].fit(X_train, actual[i])
+	predicted[i] = models[i].predict(X_test)
 
 # Fancy print predictions and add evaluation metrics to a file
 numCorrect = 0
 total = 0
+true_positives = [EPSILON] * NUM_CLASSES
+false_positives = [EPSILON] * NUM_CLASSES
+false_negatives = [EPSILON] * NUM_CLASSES
 for i in range(num_test_reviews):
 	review_text = review_texts[i]
-	if verbose: print('########REVIEW########')
-	if verbose: print(review_text[:100])
-	if verbose: print(('{:>20s}: {:>10s} {:>10s} {:>10s}').format('Class', 'Predicted', 'Actual', 'Correct?'))
+	if verbose: 
+		print('########REVIEW########')
+		print(review_text[:100])
+		print(('{:>20s}: {:>10s} {:>10s} {:>10s}').format('Class', 'Predicted', 'Actual', 'Correct?'))
 	for j in range(NUM_CLASSES):
-		correct = (predictions[j][i] == one_hot_labels[j][i])
+		if predicted[j][i] == 1:
+			if actual[j][i] == 1:
+				true_positives[j] += 1
+			else:
+				false_positives[j] += 1
+		elif actual[j][i] == 1:
+			false_negatives[j] += 1
+		correct = (predicted[j][i] == actual[j][i])
 		if correct:
 			numCorrect += 1
 		total += 1
 		if verbose: print(('{:>20s}: {:>10s} {:>10s} {:>10s}').format(classes[j][:20], \
-			'YES' if predictions[j][i] == 1 else 'NO', \
-			'YES' if one_hot_labels[j][i] == 1 else 'NO',
+			'YES' if predicted[j][i] == 1 else 'NO', \
+			'YES' if actual[j][i] == 1 else 'NO',
 			'+' if correct else ''))
-	if verbose and input('Hit ENTER to continue, hit anything else to quit.') != '': 
+	if verbose and input('Hit ENTER to continue, hit anything else to quit. ') != '': 
 		verbose = False
-print(float(100 * numCorrect / (total)), 'percent correct')
+print('#########EVAL#########')
+print(('{:>20s}: {:>10s} {:>10s}').format('Class', 'Precision', 'Recall'))
+for j in range(NUM_CLASSES):
+	print(('{:>20s}: {: >1.8f} {: >1.8f}').format(classes[j][:20], \
+			float(true_positives[j] / (true_positives[j] + false_positives[j])), \
+			float(true_positives[j] / (true_positives[j] + false_negatives[j]))))
+print('Accuracy:', float(numCorrect / (total)))
 
 
 
