@@ -2,11 +2,13 @@
 
 # import tensorflow as tf
 
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.linear_model import SGDClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.svm import LinearSVC
+from sklearn.tree import DecisionTreeClassifier
 
 class ExampleModel():
 	# Creates the model
@@ -31,7 +33,7 @@ class ExampleModel():
 
 class SGDModel(ExampleModel):
 	def __init__(self):
-		self.model = SGDClassifier(max_iter=5)
+		self.model = SGDClassifier(max_iter=20)
 
 	def fit(self, X_train, Y_train):
 		self.model.fit(X_train, Y_train)
@@ -41,7 +43,7 @@ class SGDModel(ExampleModel):
 
 class SVCModel(ExampleModel):
 	def __init__(self):
-		self.model = LinearSVC(max_iter=5)
+		self.model = LinearSVC(max_iter=20)
 
 	def fit(self, X_train, Y_train):
 		self.model.fit(X_train, Y_train)
@@ -62,6 +64,16 @@ class NeighborsModel():
 class NeuralModel():
 	def __init__(self):
 		self.model = MLPClassifier()
+
+	def fit(self, X_train, Y_train):
+		self.model.fit(X_train, Y_train)
+
+	def predict(self, X_test):
+		return self.model.predict(X_test)
+
+class DTModel():
+	def __init__(self):
+		self.model = DecisionTreeClassifier()
 
 	def fit(self, X_train, Y_train):
 		self.model.fit(X_train, Y_train)
@@ -102,10 +114,6 @@ class NeuralModel():
 # 	def fit(self, X_train, Y_train):
 # 		return
 
-# 	# Params:
-# 	# 	X_test: 2d feature vector
-# 	# Returns: 
-# 	#	Y_test: 1d label vector
 # 	def predict(self, X_test):
 # 		return []
 
