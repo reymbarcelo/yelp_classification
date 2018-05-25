@@ -1,11 +1,11 @@
 # Classifies reviews based on top N classes.
 
 import json
+import models
 import os
 import sys
 
 from collections import defaultdict
-from models import chosen_model
 from features import featurize
 from random import shuffle
 from sklearn.feature_extraction import DictVectorizer
@@ -24,9 +24,13 @@ classes = set([]) 					# set(['Nightlife', 'Bars', ...])
 review_texts = []					# ['This place is the WORST', ...]
 featurized_reviews = []				# [{'review_id': ...}, {}, ...]
 labels = []							# [['American', 'Burgers'], ['Italian', ...], ...]
-models = [None] * NUM_CLASSES		# [SGDClassifier for 'Burgers', SGDClassifier for 'Sushi', ...]
+my_models = [None] * NUM_CLASSES	# [SGDClassifier for 'Burgers', SGDClassifier for 'Sushi', ...]
 predicted = [[]] * NUM_CLASSES 		# [[1, 0, 1, ...], ...]
 actual = [[]] * NUM_CLASSES 		# [[1, 1, 0, ...], ...]
+
+# Change model here
+def chosen_model():
+	return models.SGDModel()
 
 # Generate top NUM_CLASSES classes
 i = 0
@@ -82,9 +86,9 @@ for i in range(NUM_CLASSES):
 	# 	  and classes[i] = 'Burgers', then
 	#     	actual[i] = [1, 1, 0]
 	actual[i] = [1 if classes[i] in set(label_list) else 0 for label_list in train_labels]
-	models[i] = chosen_model()
-	models[i].fit(X_train, actual[i])
-	predicted[i] = models[i].predict(X_test)
+	my_models[i] = chosen_model()
+	my_models[i].fit(X_train, actual[i])
+	predicted[i] = my_models[i].predict(X_test)
 
 # Fancy print predictions and add evaluation metrics to a file
 numCorrect = 0
