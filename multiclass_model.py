@@ -30,7 +30,7 @@ actual = [[]] * NUM_CLASSES 		# [[1, 1, 0, ...], ...]
 
 # Change model here
 def chosen_model():
-	return models.DTModel()
+	return models.SVCModel()
 
 # Generate top NUM_CLASSES classes
 i = 0
@@ -79,7 +79,7 @@ v = DictVectorizer(sparse=False)
 X_train = v.fit_transform(train_reviews)
 X_test = v.transform(test_reviews)
 
-# Create N models
+# Create N models and predict on test set
 classes = list(classes)
 for i in range(NUM_CLASSES):
 	# Eg. if train_labels = [('Bars', 'Burgers'), ('Burgers', 'Sushi'), ('Sushi')]
