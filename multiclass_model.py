@@ -12,8 +12,8 @@ from sklearn.feature_extraction import DictVectorizer
 
 # Some combinations of these params are impossible. If so,
 # it *should* exit gracefully, but I can't promise anything :P
-NUM_CLASSES = 10
-NUM_RELEVANT_CLASSES = 3
+NUM_CLASSES = 5
+NUM_RELEVANT_CLASSES = 2
 NUM_REVIEWS = 1000
 PERCENT_TRAIN = 0.75
 EPSILON = sys.float_info.epsilon
@@ -30,7 +30,7 @@ actual = [[]] * NUM_CLASSES 		# [[1, 1, 0, ...], ...]
 
 # Change model here
 def chosen_model():
-	return models.SGDModel()
+	return models.SVCModel()
 
 # Generate top NUM_CLASSES classes
 i = 0
