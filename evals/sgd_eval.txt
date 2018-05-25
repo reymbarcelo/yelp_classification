@@ -1,0 +1,8 @@
+#########EVAL#########
+               Class:  Precision     Recall  Instances
+           Fast Food: 0.03703704 0.02272727        146
+                Bars: 0.76963351 0.74619289        580
+           Nightlife: 0.77631579 0.89847716        581
+American (Traditiona: 0.29411765 0.18072289        252
+          Sandwiches: 0.20000000 0.16000000        165
+Accuracy: 0.6704
