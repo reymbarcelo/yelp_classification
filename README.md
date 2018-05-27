@@ -1,11 +1,11 @@
 # yelp_classification
 SETUP:
 
-`python multiclass_model.py`    
+`python multiclass.py`    
 
 (just prints precision, recall, and accuracy)
 
-`python multiclass_model.py v`  
+`python multiclass.py v`  
 
 (prints individual reviews as well)
 
