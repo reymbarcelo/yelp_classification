@@ -3,7 +3,6 @@
 from collections import defaultdict
 
 def featurize(review):
-	# TODO: make this cleaner
 	featurized_review = defaultdict(int)
 	bag_of_words(featurized_review, review)
 	bigrams(featurized_review, review)

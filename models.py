@@ -2,6 +2,7 @@
 
 # import tensorflow as tf
 
+from sklearn.cluster import KMeans
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.linear_model import SGDClassifier
 from sklearn.naive_bayes import GaussianNB
