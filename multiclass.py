@@ -30,7 +30,7 @@ actual = [[]] * NUM_CLASSES 		# [[1, 1, 0, ...], ...]
 
 # Change model here
 def chosen_model():
-	return models.SVCModel()
+	return models.SGDModel()
 
 # Generate top NUM_CLASSES classes
 i = 0
@@ -121,15 +121,23 @@ for i in range(num_test_reviews):
 	if verbose and input('Hit ENTER to continue, hit anything else to quit. ') != '': 
 		verbose = False
 print('#########EVAL#########')
-print(('{:>20s}: {:>10s} {:>10s} {:>10s} {:>10s}').format('Class', 'Instances', 'Precision', 'Recall', 'F1 Score'))
+print(('{:>20s}: {:>10s} {:>10s} {:>10s} {:>10s}').format('Class', 'Precision', 'Recall', 'F1 Score', 'Instances'))
+weighted_f1 = 0
+total_instances = 0
 for j in range(NUM_CLASSES):
-	precision = true_positives[j] / (true_positives[j] + false_positives[j])
-	recall = true_positives[j] / (true_positives[j] + false_negatives[j])
+	precision = float(true_positives[j] / (true_positives[j] + false_positives[j]))
+	recall = float(true_positives[j] / (true_positives[j] + false_negatives[j]))
 	f1 = (precision * recall) / (precision + recall)
-	print('{:>20s}: {:>1.8f} {:>1.8f} {:>10d} {:>1.8f}'.format(classes[j][:20], \
-			float(precision), \
-			float(recall), \
-			sum(actual[j])))
+	instances = sum(actual[j])
+	weighted_f1 += f1 * instances
+	total_instances += instances
+	print('{:>20s}: {:>1.8f} {:>10f} {:>1.8f} {:>10d}'.format(classes[j][:20], \
+			precision, \
+			recall, \
+			f1, \
+			instances))
+weighted_f1 /= total_instances
+print('Weighted F1:', weighted_f1)
 print('Accuracy:', float(numCorrect / (total)))
 
 

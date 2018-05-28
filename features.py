@@ -8,7 +8,7 @@ from nltk.stem import *
 def featurize(review):
 	featurized_review = defaultdict(int)
 	# bag_of_words(featurized_review, review)
-	# bigrams(featurized_review, review)
+	bigrams(featurized_review, review)
 	stars(featurized_review, review)
 	# stem(featurized_review, review)
 	# pos_tag(featurized_review, review)
@@ -36,6 +36,7 @@ def pos_tag(featurized_review, review):
 	for word, tag in nltk.pos_tag(nltk.word_tokenize(review['text'])):
 		featurized_review[word + '_' + tag] += 1
 
+# Combines bag_of_words, stem, and pos_tag into one funcion.
 def preprocessed_bag_of_words(featurized_review, review):
 	stemmer = PorterStemmer()
 	stop = set(stopwords.words('english'))
