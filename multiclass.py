@@ -13,8 +13,8 @@ from sklearn.feature_extraction import DictVectorizer
 # Some combinations of these params are impossible. If so,
 # it *should* exit gracefully, but I can't promise anything :P
 NUM_CLASSES = 10
-NUM_RELEVANT_CLASSES = 1
-NUM_REVIEWS = 5000
+NUM_RELEVANT_CLASSES = 3
+NUM_REVIEWS = 1000
 PERCENT_TRAIN = 0.75
 EPSILON = sys.float_info.epsilon
 verbose = (len(sys.argv) > 1)
