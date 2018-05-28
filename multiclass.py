@@ -121,11 +121,14 @@ for i in range(num_test_reviews):
 	if verbose and input('Hit ENTER to continue, hit anything else to quit. ') != '': 
 		verbose = False
 print('#########EVAL#########')
-print(('{:>20s}: {:>10s} {:>10s} {:>10s}').format('Class', 'Precision', 'Recall', 'Instances'))
+print(('{:>20s}: {:>10s} {:>10s} {:>10s} {:>10s}').format('Class', 'Instances', 'Precision', 'Recall', 'F1 Score'))
 for j in range(NUM_CLASSES):
-	print('{:>20s}: {:>1.8f} {:>1.8f} {:>10d}'.format(classes[j][:20], \
-			float(true_positives[j] / (true_positives[j] + false_positives[j])), \
-			float(true_positives[j] / (true_positives[j] + false_negatives[j])), \
+	precision = true_positives[j] / (true_positives[j] + false_positives[j])
+	recall = true_positives[j] / (true_positives[j] + false_negatives[j])
+	f1 = (precision * recall) / (precision + recall)
+	print('{:>20s}: {:>1.8f} {:>1.8f} {:>10d} {:>1.8f}'.format(classes[j][:20], \
+			float(precision), \
+			float(recall), \
 			sum(actual[j])))
 print('Accuracy:', float(numCorrect / (total)))
 
