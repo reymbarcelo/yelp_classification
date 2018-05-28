@@ -1,0 +1,13 @@
+#########EVAL#########
+               Class:  Precision     Recall  Instances
+             Italian: 0.38888889 0.13207547        154
+           Nightlife: 0.77876106 0.91191710        587
+          Sandwiches: 0.18750000 0.05660377        161
+           Fast Food: 0.00000000 0.00000000         72
+                Bars: 0.76086957 0.91623037        582
+American (Traditiona: 0.50364964 0.52671756        397
+               Pizza: 0.23809524 0.09615385        146
+             Mexican: 0.00000000 0.00000000         56
+  Breakfast & Brunch: 0.25000000 0.04651163        126
+             Burgers: 0.24137931 0.11111111        183
+Accuracy: 0.7504
