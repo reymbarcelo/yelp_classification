@@ -1,6 +1,7 @@
 # TODO: try out different models!
 
 # import tensorflow as tf
+import random
 
 from sklearn.cluster import KMeans
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
@@ -31,6 +32,26 @@ class ExampleModel():
 		return []
 
 ########################SKLEARN#MODELS########################
+
+class AlwaysNoModel(ExampleModel):
+	def __init__(self):
+		return
+
+	def fit(self, X_train, Y_train):
+		return
+
+	def predict(self, X_test):
+		return [0 for X in X_test]
+
+class RandomModel(ExampleModel):
+	def __init__(self):
+		return
+
+	def fit(self, X_train, Y_train):
+		return
+
+	def predict(self, X_test):
+		return [(0 if random.uniform(0, 1) < 0.5 else 1) for X in X_test]
 
 class SGDModel(ExampleModel):
 	def __init__(self):
