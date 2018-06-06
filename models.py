@@ -9,7 +9,7 @@ from sklearn.linear_model import SGDClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
-from sklearn.svm import LinearSVC
+from sklearn.svm import LinearSVC, SVC
 from sklearn.tree import DecisionTreeClassifier
 
 class ExampleModel():
@@ -63,9 +63,19 @@ class SGDModel(ExampleModel):
 	def predict(self, X_test):
 		return self.model.predict(X_test)
 
-class SVCModel(ExampleModel):
+class LinearSVCModel(ExampleModel):
 	def __init__(self):
 		self.model = LinearSVC(max_iter=20)
+
+	def fit(self, X_train, Y_train):
+		self.model.fit(X_train, Y_train)
+
+	def predict(self, X_test):
+		return self.model.predict(X_test)
+
+class NonlinearSVCModel(ExampleModel):
+	def __init__(self):
+		self.model = SVC(max_iter=20)
 
 	def fit(self, X_train, Y_train):
 		self.model.fit(X_train, Y_train)

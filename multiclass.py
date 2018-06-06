@@ -30,7 +30,7 @@ actual = [[]] * NUM_CLASSES 		# [[1, 1, 0, ...], ...]
 
 # Change model here
 def chosen_model():
-	return models.DecisionTreeClassifier()
+	return models.NeighborsModel()
 
 # Generate top NUM_CLASSES classes
 i = 0
