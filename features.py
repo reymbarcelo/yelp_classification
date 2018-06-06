@@ -11,9 +11,9 @@ def featurize(review):
 	# bag_of_words(featurized_review, review)
 	# bigrams(featurized_review, review)
 	# stars(featurized_review, review)
-	# stem(featurized_review, review)
+	stem(featurized_review, review)
 	# pos_tag(featurized_review, review)
-	preprocessed_bag_of_words(featurized_review, review)
+	# preprocessed_bag_of_words(featurized_review, review)
 	# service_vs_food(featurized_review, review)
 	return featurized_review
 
